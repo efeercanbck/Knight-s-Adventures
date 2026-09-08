@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c2i4b0o7hs75t"]
+
+[ext_resource type="Script" uid="uid://d2hrw2c4oouve" path="res://scripts/kapi_yildizi.gd" id="1_dj07g"]
+[ext_resource type="Texture2D" uid="uid://c1r6sgralapap" path="res://assets/sprites/star_empty-1.png (1).png" id="2_holdj"]
+[ext_resource type="Texture2D" uid="uid://24shd8q631tx" path="res://assets/sprites/star_filled-1.png.png" id="3_ctocy"]
+
+[node name="kapi_yildizi" type="Control" unique_id=445940711]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dj07g")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1146415464]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 3.0
+offset_right = 26.0
+offset_bottom = 35.0
+texture = ExtResource("2_holdj")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1569372856]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -7.0
+offset_right = 48.0
+offset_bottom = 25.0
+texture = ExtResource("2_holdj")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1393073192]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 70.0
+offset_bottom = 35.0
+texture = ExtResource("2_holdj")
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=402085904]
+visible = false
+layout_mode = 0
+offset_left = -6.0
+offset_top = 3.0
+offset_right = 26.0
+offset_bottom = 35.0
+texture = ExtResource("3_ctocy")
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=1566478270]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = -7.0
+offset_right = 48.0
+offset_bottom = 25.0
+texture = ExtResource("3_ctocy")
+
+[node name="TextureRect6" type="TextureRect" parent="." unique_id=153707490]
+visible = false
+layout_mode = 0
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 70.0
+offset_bottom = 35.0
+texture = ExtResource("3_ctocy")

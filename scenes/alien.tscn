@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bvdo41ri6rkyt"]
+
+[ext_resource type="Script" uid="uid://oid2yrfkbea3" path="res://scripts/alien.gd" id="1_u8rjw"]
+[ext_resource type="Texture2D" uid="uid://c0l5wxheltyut" path="res://assets/sprites/enemies-spritesheet.png" id="2_3vbw7"]
+[ext_resource type="Texture2D" uid="uid://babjiu7cn0blg" path="res://assets/sprites/Free/exclamation.png" id="3_np108"]
+[ext_resource type="PackedScene" uid="uid://dqv4m4g6lvdhg" path="res://scenes/killzone.tscn" id="3_vxp04"]
+[ext_resource type="Texture2D" uid="uid://5w8y5y6y7vx8" path="res://assets/sprites/Free/question_mark.png" id="4_vxp04"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qmyd"]
+radius = 75.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np108"]
+atlas = ExtResource("2_3vbw7")
+region = Rect2(40, 160, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxp04"]
+atlas = ExtResource("2_3vbw7")
+region = Rect2(60, 160, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qmyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np108")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxp04")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2ig1"]
+size = Vector2(11, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qmyd"]
+size = Vector2(10, 14)
+
+[node name="Alien" type="CharacterBody2D" unique_id=1847482212]
+collision_layer = 4
+script = ExtResource("1_u8rjw")
+
+[node name="aggro_area" type="Area2D" parent="." unique_id=1627037333]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggro_area" unique_id=1817372577]
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_5qmyd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=441162404]
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_5qmyd")
+autoplay = "default"
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2034366398]
+position = Vector2(0, -2)
+target_position = Vector2(13, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=699426651]
+position = Vector2(0, -2)
+target_position = Vector2(-12, 0)
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=493469387]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_r2ig1")
+debug_color = Color(0.9999997, 0.01477797, 0.032877155, 0.41960785)
+
+[node name="Killzone" parent="." unique_id=267449014 instance=ExtResource("3_vxp04")]
+position = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=849857339]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_5qmyd")
+debug_color = Color(0.97008914, 0.17538223, 1.92523e-07, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=224699831]
+one_shot = true
+
+[node name="exclamation_mark" type="Sprite2D" parent="." unique_id=1430787734]
+visible = false
+position = Vector2(11, -16)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("3_np108")
+
+[node name="question_mark" type="Sprite2D" parent="." unique_id=1667441440]
+visible = false
+position = Vector2(11, -17)
+scale = Vector2(0.5625, 0.625)
+texture = ExtResource("4_vxp04")
+
+[connection signal="body_entered" from="aggro_area" to="." method="_on_aggro_area_body_entered"]
+[connection signal="body_exited" from="aggro_area" to="." method="_on_aggro_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

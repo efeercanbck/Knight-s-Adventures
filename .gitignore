@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+*.translation
+.mono/
+export_presets.cfg
+#Oyunun çıktısını bu klasörlere almak daha profesyonel olur
+builds/
+exports/
+#Klasöre almadan oyunun çıktısı alındıysa git bunları görmesin diye
+*.exe
+*.pck

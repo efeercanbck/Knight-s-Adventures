@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://d2kv7hg2h8g7v"]
+
+[ext_resource type="Script" uid="uid://ch46kq6p7sao1" path="res://scripts/pop_up.gd" id="1_ui8ff"]
+[ext_resource type="PackedScene" uid="uid://bwhba425t16m5" path="res://scenes/star.tscn" id="2_vln5t"]
+[ext_resource type="FontFile" uid="uid://bq5bvxi665bsy" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_gtdy0"]
+
+[node name="pop_up" type="CanvasLayer" unique_id=2094834583]
+script = ExtResource("1_ui8ff")
+
+[node name="Control" type="Control" parent="." unique_id=2139327878]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=553781277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7176471)
+
+[node name="star" parent="Control" unique_id=510342561 instance=ExtResource("2_vln5t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -146.0
+offset_right = -170.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="star2" parent="Control" unique_id=496813541 instance=ExtResource("2_vln5t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -213.0
+offset_right = -40.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="star3" parent="Control" unique_id=1999478806 instance=ExtResource("2_vln5t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -146.0
+offset_right = 86.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=479058098]
+wait_time = 3.0
+one_shot = true
+
+[node name="Message" type="Label" parent="." unique_id=287420795]
+visible = false
+offset_left = 34.0
+offset_top = 331.0
+offset_right = 1116.0
+offset_bottom = 419.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_gtdy0")
+theme_override_font_sizes/font_size = 32
+text = "Oyunun amacını yanlış anladın galiba :?"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

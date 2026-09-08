@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dynsxkb14rjwe"]
+
+[ext_resource type="Texture2D" uid="uid://1pq40fgtvlls" path="res://assets/sprites/Free/Traps/Spikes/Idle.png" id="1_xbcdo"]
+
+[node name="spikes" type="Node2D" unique_id=1024538414]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2055327421]
+position = Vector2(0.49999875, -8)
+scale = Vector2(1.0624999, 1)
+texture = ExtResource("1_xbcdo")

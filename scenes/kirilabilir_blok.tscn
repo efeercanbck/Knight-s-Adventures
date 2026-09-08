@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://inj80la1gwlh"]
+
+[ext_resource type="Texture2D" uid="uid://cob1getixfo7f" path="res://assets/sprites/world_tileset.png" id="1_dw7mk"]
+[ext_resource type="Script" uid="uid://dmb37rjpnc7iu" path="res://scripts/kirilabilir_blok.gd" id="2_fjpki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qmyd"]
+size = Vector2(12, 1.9375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2ig1"]
+size = Vector2(14, 14)
+
+[node name="kirilabilir_blok" type="StaticBody2D" unique_id=450902854]
+
+[node name="surpriz_goruntu" type="Sprite2D" parent="." unique_id=13943435]
+texture = ExtResource("1_dw7mk")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="kirik_goruntu" type="Sprite2D" parent="." unique_id=1531772213]
+texture = ExtResource("1_dw7mk")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=448511431]
+collision_mask = 2
+script = ExtResource("2_fjpki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=642359030]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_5qmyd")
+debug_color = Color(1.2513996e-06, 0.606641, 0.66210383, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303332059]
+shape = SubResource("RectangleShape2D_r2ig1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1704412957]
+emitting = false
+lifetime = 0.3
+one_shot = true
+emission_shape = 2
+emission_sphere_radius = 6.25
+angle_min = -39.5
+angle_max = 236.7
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.32597795, 0.1557791, 0.13621616, 1)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
