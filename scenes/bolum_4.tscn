@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bp3nt71fb3no7" path="res://scenes/gateway.tscn" id="14_ymlj5"]
 [ext_resource type="Script" uid="uid://bvc7j8n33dtvb" path="res://scripts/game_manager.gd" id="15_kxp7d"]
 [ext_resource type="FontFile" uid="uid://2ccmj83xd4wb" path="res://assets/fonts/PixelOperator8.ttf" id="16_cywjg"]
+[ext_resource type="PackedScene" uid="uid://ejrtqtug3rtn" path="res://scenes/final_scene.tscn" id="16_ymlj5"]
 [ext_resource type="AudioStream" uid="uid://exuxk0mn7uox" path="res://assets/music/time_for_adventure.mp3" id="17_msfj4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5w2d"]
@@ -1308,6 +1309,7 @@ position = Vector2(6326, 456)
 [node name="GameManager" type="Node" parent="." unique_id=418542257]
 unique_name_in_owner = true
 script = ExtResource("15_kxp7d")
+next_scene = ExtResource("16_ymlj5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1334649954]
 
