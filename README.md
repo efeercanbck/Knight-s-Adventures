@@ -40,6 +40,6 @@ You can download and play the latest build without installing Godot:
 
 * **Engine:** [Godot Engine 4](https://godotengine.org/)
 * **Scripting:** GDScript
-* **Art & Assets:** [Asset kaynağı, örn: Kenney / Brackeys / CraftPix]
+* **Art & Assets:** itch.io
 
 ---
